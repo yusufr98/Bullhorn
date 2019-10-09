@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<head th:replace="base :: headstuff"></head>
+<div>
+<nav th:replace="base :: navbar"></nav>
 <a href="/">Show All Messages</a><br />
-Message : <span th:text="${message.content}" ></span><br />
-Posted Date : <span th:text="${message.postedDate}" ></span><br />
-Author : <span th:text="${message.sentby}" ></span><br />
+<div class="card" style="width: 18rem;">
+    <div class="card-title"> Message :<br /> <span th:text="${message.content}" ></span></div><br />
+<div class="card text">Posted Date : <span th:text="${message.postedDate}" ></span>
+    Author : <span th:text="${message.sentby}" ></span></div>
+</div><br />
 <a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
 </body>
+<th:block th:replace="base :: jslinks"></th:block>
 </html>

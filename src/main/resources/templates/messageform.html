@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="base :: headstuff"></head>
 <body>
+<nav th:replace="base :: navbar"></nav>
     <h1>Submit a Message!</h1>
     <form action="#" th:action="@{/process}" th:object="${message}" method="post">
         <input type="hidden" th:field="*{id}" />
-        Message : <textarea rows="3" th:field="*{content}" />
+        Message : <br /><textarea rows="3" th:field="*{content}" />
         <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br />
-        Today's Date(MM/DD/YYYY) : <input type="text" th:field="*{postedDate}" />
+        Today's Date(MM/DD/YYYY) : <br /><input type="text" th:field="*{postedDate}" />
         <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span><br />
-        Sent By : <input type="text" th:field="*{sentby}"  />
+        Sent By : <br /><input type="text" th:field="*{sentby}"  />
         <span th:if="${#fields.hasErrors('sentby')}" th:errors="*{sentby}"></span><br />
         <input type="submit" value="Submit" />
     </form>
 </body>
+<th:block th:replace="base :: jslinks"></th:block>
 </html>
