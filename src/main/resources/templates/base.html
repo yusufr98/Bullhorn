@@ -11,16 +11,17 @@
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-default navbar-fixed-top" th:fragment="navbar">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/add">Add a Message</a></li>
-            </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="navbar">
+    <a class="navbar-brand" href="/">BadTwitter</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/add">Submit a Message</a>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
 <th:block th:fragment="jslinks">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js">
     </script>

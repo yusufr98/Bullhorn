@@ -25,6 +25,18 @@ public class Message {
     @Size(min=3)
     private String sentby;
 
+    private String headshot;
+
+    public Message(@NotNull @Size(min = 2) String content, @NotNull @Size(min = 10, max = 11) String postedDate, @NotNull @Size(min = 3) String sentby, String headshot) {
+        this.content = content;
+        this.postedDate = postedDate;
+        this.sentby = sentby;
+        this.headshot = headshot;
+    }
+
+    public Message() {
+    }
+
     public long getId() {
         return id;
     }
@@ -55,5 +67,13 @@ public class Message {
 
     public void setSentby(String sentby) {
         this.sentby = sentby;
+    }
+
+    public String getHeadshot() {
+        return headshot;
+    }
+
+    public void setHeadshot(String headshot) {
+        this.headshot = headshot;
     }
 }

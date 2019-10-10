@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="http://www.thymeleaf.org">
 <head th:replace="base :: headstuff"></head>
-<div>
-<nav th:replace="base :: navbar"></nav>
-<a href="/">Show All Messages</a><br />
+<body style="background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg); -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;">
+<nav th:replace="base :: navbar"></nav><br />
+<div class="container">
 <div class="card" style="width: 18rem;">
-    <div class="card-title"> Message :<br /> <span th:text="${message.content}" ></span></div><br />
-<div class="card text">Posted Date : <span th:text="${message.postedDate}" ></span>
-    Author : <span th:text="${message.sentby}" ></span></div>
-</div><br />
-<a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
+    <img class="card-img-top" th:src="${message.headshot}" alt="Card image cap">
+    <div class="card-body">
+    <div class="card-text"> Message : <br /> <span th:text="${message.content}" ></span><br />
+    <small>Posted Date : <br /><span th:text="${message.postedDate}" ></span><br />
+    Author : <br /><span th:text="${message.sentby}" ></span></small><br /></div>
+        <div class="btn-group">
+        <a class="btn btn-info" role="button" th:href="@{/update/{id}(id=${message.id})}">Update</a>
+        <a class="btn btn-info" role="button" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+    </div>
+    </div></div></div>
 </body>
 <th:block th:replace="base :: jslinks"></th:block>
 </html>

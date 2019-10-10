@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="http://www.thymeleaf.org">
 <head th:replace="base :: headstuff"></head>
-<body>
+<body style="background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg); -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;">
 <nav th:replace="base :: navbar"></nav>
-    <h1>Submit a Message!</h1>
-    <form action="#" th:action="@{/process}" th:object="${message}" method="post">
+<div class="container">
+    <div class="jumbotron" style="margin-top: 20px; padding-top: -40px">
+        <div class="col-sm-6">
+            <h1 class="display-4">Submit a Message!</h1>
+        </div>
+    <form action="#" th:action="@{/process}" th:object="${message}" method="post" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}" />
-        Message : <br /><textarea rows="3" th:field="*{content}" />
+        <div class="form-group">
+            <div class="col-sm-6">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" th:field="*{content}" placeholder="Hello!"/>
+            <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file" id="image" name="file" th:src="${message.headshot}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+            <label for="date">Date Posted</label>
+            <input type="text" class="form-control" id="date" placeholder="01/01/2000" th:field="*{postedDate}"/>
+            <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+            <label for="sentby">Sent By</label>
+            <input type="text" class="form-control" id="sentby" placeholder="John Doe" th:field="*{sentby}"/>
+            <span th:if="${#fields.hasErrors('sentby')}" th:errors="*{sentby}"></span>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <input type="submit" class="btn btn-dark btn-large"value="Submit" />
+        </div>
+            <!--Message : <br /><textarea rows="3" th:field="*{content}" />
         <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br />
+        Image : <br /><input type="file" name="file" th:src="${message.headshot}"/><br/>
         Today's Date(MM/DD/YYYY) : <br /><input type="text" th:field="*{postedDate}" />
         <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span><br />
         Sent By : <br /><input type="text" th:field="*{sentby}"  />
         <span th:if="${#fields.hasErrors('sentby')}" th:errors="*{sentby}"></span><br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" />-->
     </form>
+    </div>
+</div>
 </body>
 <th:block th:replace="base :: jslinks"></th:block>
 </html>
