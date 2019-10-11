@@ -32,17 +32,18 @@
 <div class="card-deck">
     <div th:each="message: ${messages}">
         <div class="card" style="width:18rem; height:30rem">
-            <img class="card-img-top img-fluid" th:src="${message.headshot}" style="height: 55%" alt="Card image cap">
+            <img class="card-img-top img-fluid" th:src="${message.headshot}" style="height: 16rem" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title" th:text="${message.sentby}"></h5>
                 <p class="card-text" th:text="${message.content}"></p>
                 <small><p class="card-text" th:text="${message.postedDate}"></p></small><br/>
-                <p class="card-text align-self-end"><a class="btn btn-info btn-large" role="button" th:href="@{/detail/{id}(id=${message.id})}">Options</a></p>
+                <p class="card-text align-self-end"><a class="btn btn-info btn-large stretched-link" role="button" th:href="@{/detail/{id}(id=${message.id})}">Options</a></p>
             </div>
         </div>
         </div>
     </div>
 </div>
+<footer th:replace="base :: footer"></footer>
 </body>
 <th:block th:replace="base :: jslinks"></th:block>
 </html>

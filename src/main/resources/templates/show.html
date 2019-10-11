@@ -7,17 +7,18 @@
   -o-background-size: cover;">
 <nav th:replace="base :: navbar"></nav><br />
 <div class="container">
-<div class="card" style="width: 18rem;">
+    <div class="card mx-auto" style="width: 18rem;">
     <img class="card-img-top" th:src="${message.headshot}" alt="Card image cap">
     <div class="card-body">
-    <div class="card-text"> Message : <br /> <span th:text="${message.content}" ></span><br />
-    <small>Posted Date : <br /><span th:text="${message.postedDate}" ></span><br />
-    Author : <br /><span th:text="${message.sentby}" ></span></small><br /></div>
+        <div class="card-text"><strong>Message:</strong><br /> <span th:text="${message.content}" ></span><br />
+        <small><strong>Posted Date:</strong><br /><span th:text="${message.postedDate}" ></span><br />
+            <strong>Author:</strong><br /><span th:text="${message.sentby}" ></span></small><br /></div>
         <div class="btn-group">
         <a class="btn btn-info" role="button" th:href="@{/update/{id}(id=${message.id})}">Update</a>
         <a class="btn btn-info" role="button" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
     </div>
     </div></div></div>
+<footer th:replace="base :: footer"></footer>
 </body>
 <th:block th:replace="base :: jslinks"></th:block>
 </html>

@@ -7,7 +7,7 @@
   -o-background-size: cover;">
 <nav th:replace="base :: navbar"></nav>
 <div class="container">
-    <div class="jumbotron" style="margin-top: 20px; padding-top: -40px">
+    <div class="jumbotron" style="margin-top: 20px; padding-top: 2rem">
         <div class="col-sm-6">
             <h1 class="display-4">Submit a Message!</h1>
         </div>
@@ -21,10 +21,10 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-3">
-            <label for="image">Image</label>
-            <input type="file" class="form-control-file" id="image" name="file" th:src="${message.headshot}"/>
-            </div>
+            <div class="col-sm-6">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image" name="file" th:src="${message.headshot}"/>
+                </div>
         </div>
         <div class="form-group">
             <div class="col-sm-3">
@@ -54,6 +54,7 @@
     </form>
     </div>
 </div>
+<footer th:replace="base :: footer"></footer>
 </body>
 <th:block th:replace="base :: jslinks"></th:block>
 </html>
