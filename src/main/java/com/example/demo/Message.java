@@ -18,16 +18,16 @@ public class Message {
     private String content;
 
     @NotNull
-    @Size(min=10, max=11)
+    @Size(min=3, max=12)
     private String postedDate;
 
     @NotNull
-    @Size(min=3)
+    @Size(min=2)
     private String sentby;
 
     private String headshot;
 
-    public Message(@NotNull @Size(min = 2) String content, @NotNull @Size(min = 10, max = 11) String postedDate, @NotNull @Size(min = 3) String sentby, String headshot) {
+    public Message(@NotNull @Size(min = 2) String content, @NotNull @Size(min = 3, max = 12) String postedDate, @NotNull @Size(min = 2) String sentby, String headshot) {
         this.content = content;
         this.postedDate = postedDate;
         this.sentby = sentby;
