@@ -13,7 +13,7 @@
         <div class="card-text"><strong>Message:</strong><br /> <span th:text="${message.content}" ></span><br />
         <small><strong>Posted Date:</strong><br /><span th:text="${message.postedDate}" ></span><br />
             <strong>Author:</strong><br /><span th:text="${message.sentby}" ></span></small><br /></div>
-        <div class="btn-group">
+        <div class="card-footer text-center">
         <a class="btn btn-info" role="button" th:href="@{/update/{id}(id=${message.id})}">Update</a>
         <a class="btn btn-info" role="button" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
     </div>

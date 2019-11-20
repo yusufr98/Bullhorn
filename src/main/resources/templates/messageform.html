@@ -22,9 +22,13 @@
         </div>
         <div class="form-group">
             <div class="col-sm-6">
+                <div th:if="${message.headshot} != null">
+                    <img th:src="${message.headshot}"/>
+                </div>
                 <label for="image">Image (max size: 1MB)</label>
                 <input type="file" class="form-control-file" id="image" name="file" th:src="${message.headshot}"/>
-                </div>
+
+            </div>
         </div>
         <div class="form-group">
             <div class="col-sm-3">
