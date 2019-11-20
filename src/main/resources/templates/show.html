@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="http://www.thymeleaf.org">
 <head th:replace="base :: headstuff"></head>
-<body style="background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg); -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;">
+<body>
 <nav th:replace="base :: navbar"></nav><br />
 <div class="container">
-    <div class="card mx-auto" style="width: 18rem;">
+    <div class="card card-signin mx-auto" >
     <img class="card-img-top" th:src="${message.headshot}" alt="Card image cap">
     <div class="card-body">
         <div class="card-text"><strong>Message:</strong><br /> <span th:text="${message.content}" ></span><br />

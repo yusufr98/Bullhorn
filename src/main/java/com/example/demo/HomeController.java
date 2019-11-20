@@ -27,10 +27,20 @@ public class HomeController {
         return "list";
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @GetMapping("/add")
     public String messageForm(Model model){
         model.addAttribute("message", new Message());
         return "messageform";
+    }
+    @PostMapping("/searchlist")
+    public String search(Model model, @RequestParam("search") String s){
+        model.addAttribute("messages", messageRepository.findByContentContainingIgnoreCaseOrSentbyContainingIgnoreCase(s,s));
+        return "searchresults";
     }
 
     @PostMapping("/process")
@@ -51,7 +61,9 @@ public class HomeController {
                 return "redirect:/add";
             }
         }
-        messageRepository.save(message);
+        else {
+            messageRepository.save(message);
+        }
         return "redirect:/";
     }
 

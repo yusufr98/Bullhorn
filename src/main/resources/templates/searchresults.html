@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: headstuff"></head>
+<body>
+<nav th:replace="base :: navbar"></nav><br />
+<div class="container">
+    <div class="card-columns">
+        <div th:each="message: ${messages}">
+            <div class="card card-signin" >
+                <img class="card-img-top img-fluid" th:src="${message.headshot}" style="height: 16rem" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${message.sentby}"></h5>
+                    <p class="card-text" th:text="${message.content}"></p>
+                    <small><p class="card-text" th:text="${message.postedDate}"></p></small><br/>
+                    <p class="card-text align-self-end"><a class="btn btn-info btn-large stretched-link" role="button" th:href="@{/detail/{id}(id=${message.id})}">Options</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="base :: footer"></footer>
+</body>
+<th:block th:replace="base :: jslinks"></th:block>
+</html>

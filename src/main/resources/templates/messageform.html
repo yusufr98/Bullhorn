@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th ="http://www.thymeleaf.org">
 <head th:replace="base :: headstuff"></head>
-<body style="background: url(https://www.siarza.com/wp-content/uploads/2017/12/webplunder-background-image-technology-online-website-solutions.jpg); -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;">
+<body>
 <nav th:replace="base :: navbar"></nav>
 <div class="container">
     <div class="jumbotron" style="margin-top: 20px; padding-top: 2rem">
@@ -24,7 +21,7 @@
         <div class="form-group">
             <div class="col-sm-6">
                 <div th:if="${message.headshot} != null">
-                    <img th:src="${message.headshot}"/>
+                    <img th:src="${message.headshot}" style="height: 16rem; width: 30rem"/>
                 </div>
                 <label for="image">Image (max size: 1MB)</label>
                 <input type="file" class="form-control-file" id="image" name="file" th:src="${message.headshot}"/>
