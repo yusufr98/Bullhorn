@@ -29,9 +29,9 @@
     </div>
 </table>-->
 <div class="container">
-<div class="card-deck">
+<div class="card-columns">
     <div th:each="message: ${messages}">
-        <div class="card" style="width:18rem; height:30rem">
+        <div class="card" >
             <img class="card-img-top img-fluid" th:src="${message.headshot}" style="height: 16rem" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title" th:text="${message.sentby}"></h5>

@@ -35,19 +35,21 @@ public class HomeController {
 
     @PostMapping("/process")
     public String processForm(@Valid Message message1, BindingResult result, @ModelAttribute Message message,  @RequestParam("file")MultipartFile file) {
-        if(file.isEmpty()){
+        if(file.isEmpty() && message.getHeadshot() == null){
             return "redirect:/add";
         }
         if(result.hasErrors()){
             return "messageform";
         }
-        try {
-            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype","auto"));
-            message.setHeadshot(uploadResult.get("url").toString());
-            messageRepository.save(message);
-        }   catch (IOException e){
-            e.printStackTrace();
-            return "redirect:/add";
+        if(!file.isEmpty()) {
+            try {
+                Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+                message.setHeadshot(uploadResult.get("url").toString());
+                messageRepository.save(message);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "redirect:/add";
+            }
         }
         messageRepository.save(message);
         return "redirect:/";
